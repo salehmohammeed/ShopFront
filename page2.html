@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;500;600;800;900&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,700;1,200&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" href="img/page1/blackLogo.svg" />
+</head>
+
+<body>
+    <!-- Finish Buy Popup -->
+    <div class="popup-overlay-checkout"></div>
+    <div class="popup-box-checkout">
+        <div class="title">
+            <div class="logo">
+                <img src="./img/page1/blackLogo.svg" alt="">
+                <p><span>E-</span>Shop</p>
+            </div>
+            <p class="main-title">sales bill</p>
+        </div>
+        <hr>
+        <div class="date">
+        </div>
+
+        <p class="BuyerName">
+            Buyer's name : <span class="name"></span>
+        </p>
+        <p class="countPices">Number Of Pieces : <span class="pices"></span> Pices</p>
+        <p class="TotalPrice">The Total Price : <span class="prices"></span> $</p>
+        <button class="jawwal" onclick="openJawwal()"><img src="./img/jawwal pay logo.png" alt="">Payment Via Jawwal Pay
+            <i class="fas fa-angle-right"></i></button>
+        <div class="jawwalPay">
+            <p>
+                Sorry, dear customer, this service is not currently available, but we promise that it will be available
+                very soon
+                <br>E-Shop Family
+            </p>
+        </div>
+        <button class="visa" onclick="openVisa()"><img src="./img/visa-logo.webp" alt="">Payment Via Visa <i
+                class="fas fa-angle-right"></i></button>
+        <div class="Visa-Form" id="visaForm">
+            <form class="form">
+                <div class="Number">
+                    <input class="UserInptut" onkeydown="getInfo()" type="number" id="cardNum"
+                        placeholder="Card Number" />
+                </div>
+                <div class="Name">
+                    <input class="UserInptut" onkeydown="getInfo()" type="text" id="nameCard" placeholder="Card Name" />
+                </div>
+                <div class="security">
+                    <input class="UserInptut" onkeydown="getInfo()" type="password" id="securityCard"
+                        placeholder="Security Numebr" />
+                </div>
+                <h4 class="personalInfo" style="display: none;">Your Personal Information</h4>
+                <div class="Location" style="display: none;">
+                    <input class="UserInptut" type="text" id="theLocation" placeholder="Location" />
+                </div>
+                <div class="phone" style="display: none;">
+                    <input class="UserInptut" type="tel" id="numberPhone" placeholder="Number Phone" />
+                </div>
+            </form>
+            <button class="payNow" onclick="payNow()">Pay Now</button>
+        </div>
+        <button class="shopingButton" onclick="closeCheckout()"><i class="fas fa-arrow-left"></i> Continue
+            Shopping</button>
+    </div>
+    <!-- Search Popup -->
+    <div class="popup-overlay-search"></div>
+    <div class="popup-box-search">
+        <div class="closeButton" onclick="closeSearch()">X</div>
+        <input type="search" name="" id="" placeholder="Search ....">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="popup-overlay-complete"></div>
+    <div class="popup-box-complete">
+        <img src="img/comolete.png" alt="">
+        <p class="finish">The purchase was completed successfully</p>
+        <p class="connect">We hope that we will be at your best trust in us.
+            <br>We will contact you after two days as a maximum
+        </p>
+    </div>
+    <div class="cart cartPage2">
+        <div class="title">
+            <p>Shopping Cart</p>
+            <div class="logo">
+                <i class="fas fa-shopping-cart"></i>
+                <span></span>
+                <i class="fas fa-truck"></i>
+            </div>
+        </div>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                        <th>Total Price</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+
+            </table>
+        </div>
+        <div class="cart-footer">
+            <button class="shopingButton" onclick="closeCart()"><i class="fas fa-arrow-left"></i> Continue
+                Shopping</button>
+            <input type="text" placeholder="Promo Code">
+            <p class="totalCoast">Total Coast $ <span>0</span></p>
+            <button class="checkout" onclick="checkout()">CHECKOUT</button>
+        </div>
+    </div>
+    <div class="menThings menThingsPage2">
+        <div class="col col-1">
+            <ul>
+                <li>Sale</li>
+                <li>Bestsellers</li>
+                <li>Arrivals</li>
+            </ul>
+        </div>
+        <div class="col">
+            <p class="title">SHOES</p>
+            <ul>
+                <li>Lifestyle</li>
+                <li>Running</li>
+                <li>Soccer</li>
+                <li>Basketball</li>
+                <li>Football</li>
+                <li>Golf</li>
+                <li>Baseball</li>
+            </ul>
+        </div>
+        <div class="col">
+            <p class="title">CLOTHING</p>
+            <ul>
+                <li>Pants</li>
+                <li>Hodies & Sweatshirt</li>
+                <li>Jacket & Vests</li>
+                <li>Track Suits</li>
+                <li>Short Sleeve Shirts</li>
+                <li>T-Shirts</li>
+                <li>Jersyes</li>
+                <li>Shorts</li>
+                <li>Jens</li>
+            </ul>
+        </div>
+        <div class="col">
+            <p class="title">ACCESORRIES</p>
+            <ul>
+                <li>Backpacks</li>
+                <li>Caps & Hats</li>
+                <li>Watches</li>
+                <li>Belts</li>
+                <li>Bags</li>
+                <li>Wallest & Casses</li>
+                <li>Scarves</li>
+                <li>Glasses</li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <div class="header">
+            <div class="shipment">
+                <div>
+                    <p>Free Shipment From 200$</p>
+                    <p>Free Shipment From 200$</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="logo">
+                    <img src="img/page1/blackLogo.svg" alt="">
+                    <p><span>E-</span>Shop</p>
+                </div>
+                <div class="main-nav">
+                    <ul>
+                        <li><a href="#men" class="men">Men</a></li>
+                        <li><a href="#women">Women</a></li>
+                        <li><a href="#kids">Kids</a></li>
+                    </ul>
+                </div>
+                <div class="icons">
+                    <a href="#" class="search" onclick="openSearch()"><i class="fas fa-search"></i></a>
+                    <a href="#" class="market"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="#" onclick="openLoginPopup()" class="login"><i class="far fa-user"></i></a>
+                </div>
+            </div>
+            <div class="main-home container">
+                <div class="information">
+                    <div class="back">
+                        <a href="home.html"><i class="fas fa-home"></i></a> / Men's Tops / T-Shirt / <span>T-Shirt
+                            Summer Vibes</span>
+                    </div>
+                    <div class="info">
+                        <div>
+                            <i class="fas fa-truck-moving"></i>
+                            <p>Standared shipment <br><span>Free within 3-6 busniess days</span></p>
+                        </div>
+                        <div>
+                            <i class="fas fa-truck"></i>
+                            <p>Express delivery <br><span>35,00$ available </span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="images">
+                        <ul>
+                            <li><img src="img/page2/black.png" onclick="shirt(this.src)" alt=""></li>
+                            <li><img src="img/page2/bisque.png" onclick="shirt(this.src)" alt=""></li>
+                            <li><img src="img/page2/white.png" onclick="shirt(this.src)" alt=""></li>
+                            <li><img src="img/page2/blue.png" onclick="shirt(this.src)" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="img">
+                        <img src="img/page2/white.png" alt="">
+                    </div>
+                    <div class="details">
+                        <div class="detail-info">
+                            <div>
+                                <span>sale</span>
+                                <span class="id">Product ID :<br>261311</span>
+                            </div>
+                            <div class="name">
+                                T-Shirt Summer Vibes
+                            </div>
+                            <div class="salary">
+                                <p>$<span class="price" style="color: red;">89.99</span> <span><del>$119.99</del></span>
+                                </p>
+                                <p>HOUSE MY BRAND</p>
+                            </div>
+                        </div>
+                        <div class="detailGet">
+                            <div class="color">
+                                Color :
+                                <ul class="Background-color-list">
+                                    <li id="black" onclick="setImage(this.id)"></li>
+                                    <li id="bisque" onclick="setImage(this.id)"></li>
+                                    <li id="blue" onclick="setImage(this.id)"></li>
+                                    <li id="white" class="active" onclick="setImage(this.id)"></li>
+                                </ul>
+                            </div>
+                            <div class="size">
+                                Size :
+                                <select name="select" id="">
+                                    <option hidden selected>Choose Size</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+                            <div class="quantity">
+                                Quantity :
+                                <div class='amounts'>
+                                    <span class="decrease" id="decrease" onclick="changeAmount(this.id)">-</span>
+                                    <p>1</p>
+                                    <span class="increase" id="increase" onclick="changeAmount(this.id)">+</span>
+                                </div>
+                            </div>
+                            <button class="submit">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="description container">
+            <div class="buttons">
+                <button class="desc active" onclick="openDescr()">description</button>
+                <button class="reviwes" onclick="openReviwes()">reviwes (2)</button>
+            </div>
+            <div class="descriptionPage">
+                <div class="cols">
+                    <div class="colum-1">
+                        <i class="far fa-file-alt"></i>
+                        <p class="title">Details and product description</p>
+                        <p>White Summer Vibes T-shirt in the uiKit line with a colorful print.
+                            Made of jersey cotton. T-shirt fits perfectly with jeans, pants or shorts.
+                        </p>
+                    </div>
+                    <div class="colum-2">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <p class="title">Material(s) and care</p>
+                        <p>Body: 98% COTTON - 2% ELASTANE</p>
+                        <img src="./img/page2/Image 2.svg" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="reviewsPage">
+                <div class="cols">
+                    <div class="colum-1">
+                        <div class="flex">
+                            <div class="star">
+                                <span>4.5</span>
+                                <div class="stars">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/halfStar.svg" alt="">
+                                </div>
+                                <div class="num">
+                                    <i class="far fa-user"></i>
+                                    <p>81 all opinions</p>
+                                </div>
+                            </div>
+                            <div class="optnions">
+                                <div class="opinion">
+                                    <img src="./img/page2/fullStar.svg" alt="">
+                                    <span class="number">1</span>
+                                    <div></div>
+                                </div>
+                                <div class="opinion">
+                                    <img src="./img/page2/fullStar.svg" alt="">
+                                    <span class="number">2</span>
+                                    <div></div>
+                                </div>
+                                <div class="opinion opinion-3">
+                                    <img src="./img/page2/fullStar.svg" alt="">
+                                    <span class="number">3</span>
+                                    <div><span></span></div>
+                                </div>
+                                <div class="opinion opinion-4">
+                                    <img src="./img/page2/fullStar.svg" alt="">
+                                    <span class="number">4</span>
+                                    <div><span></span></div>
+                                </div>
+                                <div class="opinion opinion-5">
+                                    <img src="./img/page2/fullStar.svg" alt="">
+                                    <span class="number">5</span>
+                                    <div><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button>add opinion</button>
+                    </div>
+                    <div class="colum-2">
+                        <div class="rows">
+                            <div class="img">
+                                <img src="./img/page2/Ellipse 135.svg" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="name">John Doe</div>
+                                <div class="stars">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/halfStar.svg" alt="">
+                                </div>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry&apos;s standard dummy text ever since the 1500s
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rows">
+                            <div class="img">
+                                <img src="./img/page2/Ellipse 136.svg" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="name">Eveline Gosko</div>
+                                <div class="stars">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/halfStar.svg" alt="">
+                                </div>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has
+                                </p>
+                            </div>
+                        </div>
+                        <div class="rows">
+                            <div class="img">
+                                <img src="./img/page2/Ellipse 137.svg" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="name">Anne Okombo</div>
+                                <div class="stars">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/fullStar.svg" alt="">
+                                    <img src="./img//page2/halfStar.svg" alt="">
+                                </div>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section>
+        <div class="products-container container">
+            <div class="nav-product">
+                <p>Selected just for you</p>
+                <button>Show More</button>
+            </div>
+            <div class="products">
+                <a href="page2.html">
+                    <div class="product product-1">
+                        <span class="dec">30%</span>
+                        <div class="img">
+                            <img src="./img/page1/broduct1.png" alt="">
+                        </div>
+                        <div class="text">
+                            <p class="name">T-Shirt Summer Vibes</p>
+                            <p class="pirce">$89.99 <span>$119.99</span></p>
+                        </div>
+                    </div>
+                </a>
+                <div class="product">
+                    <div class="img">
+                        <img src="./img/page1/broduct2.png" alt="">
+                    </div>
+                    <div class="text">
+                        <p class="name">Loose Kint 3/4 Sleeve</p>
+                        <p class="pirce">$119.99</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="img">
+                        <img src="./img/page1/broduct3.png" alt="">
+                    </div>
+                    <div class="text">
+                        <p class="name">Basic Slim Fit T-Shirt</p>
+                        <p class="pirce">$79.99</span></p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="img">
+                        <img src="./img/page1/broduct4.png" alt="">
+                    </div>
+                    <div class="text">
+                        <p class="name">Loose Textured T-Shirt</p>
+                        <p class="pirce">$119.99</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        <div class="email">
+            <div class="text">
+                Subscribe to our newsletter and
+                receive exclusive offers every week
+            </div>
+            <div class="emailbox">
+                <input type="email" placeholder="Enter your email">
+                <button>Send</button>
+            </div>
+        </div>
+        <div class="links">
+            <div class="brand">
+                <div class="logo">
+                    <img src="./img/page1/blackLogo.svg" alt="">
+                    <p><span>E-</span>Shop</p>
+                </div>
+                <p class="text">House My Brand designs clothing for the young, the old &amp;
+                    everyone in between – but most importantly, for the fashionable
+                </p>
+                <div class="icons">
+                    <i class="fab fa-facebook-f" style="color: blue;"></i>
+                    <i class="fab fa-twitter" style="color:  #26a7de;"></i>
+                    <i class="fab fa-linkedin-in" style="color: blue"></i>
+                    <i class=" fab fa-instagram" style="color: orangered;"></i>
+                    <i class="fab fa-youtube" style="color: red;"></i>
+                </div>
+            </div>
+            <div class="online">
+                <p class="title">Shopping online</p>
+                <ul>
+                    <li>Order Status</li>
+                    <li>Shipping and delivent</li>
+                    <li>Returns</li>
+                    <li>Payment Options</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="information">
+                <p class="title">Information</p>
+                <ul>
+                    <li>Gift Card</li>
+                    <li>Find A Store</li>
+                    <li>Newsletter</li>
+                    <li>Become A Member</li>
+                    <li>Site Fedback</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <p class="title">Contact</p>
+                <ul>
+                    <li>store@gmail.com</li>
+                    <li>Hotline: +97259377292</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Login Modal -->
+    <div class="popup-overlay-login"></div>
+    <div class="popup-box-login">
+        <div class="closeButton" onclick="closeLogin()">X</div>
+        <h3 class="loginTitle">Login</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+        <input class="UserInptut emails" type="text" placeholder="Email">
+        <input class="UserInptut password" type="password" placeholder="Password">
+        <div class="forget">
+            <div class="keep"><input type="checkbox" name="" id="">Keep me signed in</div>
+            <a href="#" onclick="openForget()">Forget Password?</a>
+        </div>
+        <div class="buttons">
+            <button class="facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+            <button class="gmail"><i class="fas fa-envelope"></i>Gmail</button>
+        </div>
+        <button class="loginButton" onclick="login()">Sign In</button>
+        <div class="div" onclick="openRegister()"><a href="#">Not a member yet ? </a>(Sign up) </div>
+    </div>
+    <!-- Forget Password Modal -->
+    <div class="popup-overlay-forget"></div>
+    <div class="popup-box-forget">
+        <div class="closeButton" onclick="closeForget()">X</div>
+        <h3 class="loginTitle">Forgot Yout Password ?</h3>
+        <p>Enter your email or your phone number and recover your account</p>
+        <input class="UserInptut" type="text" placeholder="Email" id="email">
+        <div class="or">
+            <div class=" row row-1"></div>
+            <div>OR</div>
+            <div class=" row row-2"></div>
+        </div>
+        <input class="UserInptut" type="text" placeholder="Phone Number" id="phoneNumber">
+        <button class="loginButton" onclick="login()">Reset Password</button>
+    </div>
+    <!-- Register Modal -->
+    <div class="popup-overlay-register"></div>
+    <div class="popup-box-register">
+        <div class="closeButton" onclick="closeRegister()">X</div>
+        <h3 class="loginTitle">
+            Create an account and discover the benefits
+        </h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt a iste odit facere adipisci, corrupti
+            repudiandae eum </p>
+        <div class="page2">
+            <input class="UserInptut firstName" type="text" placeholder="First Name">
+            <input class="UserInptut lastName" type="text" placeholder="Last Name">
+            <input class="UserInptut emails" type="email" placeholder="Email">
+            <input class="UserInptut password" type="password" placeholder="Password">
+        </div>
+        <div class="forget">
+            <div class="keep"><input type="checkbox">I Agree To The Google Terms Of Service And Privacy Policy</div>
+        </div>
+        <button class="loginButton" onclick="register()">Sign up</button>
+        <div class="div"><a href="#" onclick="closeRegister()">Are you already member?</div>
+    </div>
+    <div class="popup-success-notification">
+        <h3><i class="fas fa-check-circle"></i> <span class="notif">sssssssssssssss</span></h3>
+    </div>
+    <div class="popup-failed-notification">
+        <h3><i class="fas fa-exclamation-circle"></i> <span class="notif">sssssssssssssss</span></h3>
+    </div>
+    <script src="js/page2.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.js"></script>
+</body>
+
+</html>
